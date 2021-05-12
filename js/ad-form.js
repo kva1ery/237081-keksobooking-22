@@ -54,11 +54,7 @@ const AdForm = function () {
    * @param {boolean} active
    */
   this.toggleActive = (active = true) => {
-    if (active) {
-      form.classList.remove('ad-form--disabled');
-    } else {
-      form.classList.add('ad-form--disabled');
-    }
+    form.classList.toggle('ad-form--disabled', !active);
 
     const fieldsets = form.querySelectorAll('fieldset');
     fieldsets.forEach((fieldset) => {
@@ -115,7 +111,7 @@ const AdForm = function () {
     if (priceInput.validity.rangeUnderflow) {
       priceInput.setCustomValidity(`Цена за ночь не может быть меньше ${priceInput.min} рублей`);
     } else if (priceInput.validity.rangeOverflow) {
-      priceInput.setCustomValidity('Цена за ночь не может быть больше 1000000 рублей');
+      priceInput.setCustomValidity(`Цена за ночь не может быть больше ${priceInput.max} рублей`);
     } else if (priceInput.validity.valueMissing) {
       priceInput.setCustomValidity('Цена за ночь обязателена для заполнения');
     } else {

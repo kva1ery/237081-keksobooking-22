@@ -56,6 +56,12 @@ const Card = function (cardData) {
       }
     };
 
+    const avatarRender = (avatarSrc) => {
+      const avatar = card.querySelector('.popup__avatar');
+      avatar.src = avatarSrc;
+      avatar.hidden = avatarSrc;
+    }
+
     const fillField = (selector, value, isVisible) => {
       const field = card.querySelector(selector);
 
@@ -64,11 +70,10 @@ const Card = function (cardData) {
     };
 
     fillField('.popup__title', cardData.offer.title, cardData.offer.title);
-    fillField('.popup__text--address', cardData.offer.address, cardData.offer.title);
-    fillField('.popup__text--price', `${cardData.offer.price} ₽/ночь`, cardData.offer.title);
+    fillField('.popup__text--address', cardData.offer.address, cardData.offer.address);
+    fillField('.popup__text--price', `${cardData.offer.price} ₽/ночь`, cardData.offer.price);
     fillField('.popup__type', HOUSING_TYPES[cardData.offer.type].title, cardData.offer.type);
     fillField('.popup__description', cardData.offer.description, cardData.offer.description);
-    fillField('.popup__avatar', cardData.offer.description, cardData.offer.description);
 
     fillField('.popup__text--capacity',
       `${cardData.offer.rooms} комнаты для ${cardData.offer.guests} гостей`,
@@ -79,12 +84,8 @@ const Card = function (cardData) {
       cardData.offer.checkin && cardData.offer.checkout);
 
     featuresRender(cardData.offer.features);
-
     photosRender(cardData.offer.photos);
-
-    const avatar = card.querySelector('.popup__avatar');
-    avatar.src = cardData.author.avatar;
-    avatar.hidden = cardData.author.avatar;
+    avatarRender(cardData.author.avatar);
 
     return card;
   };
