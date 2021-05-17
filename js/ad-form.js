@@ -107,6 +107,10 @@ const AdForm = function () {
     }
   });
 
+  titleInput.addEventListener('input', () => {
+    titleInput.checkValidity();
+  });
+
   priceInput.addEventListener('invalid', () => {
     if (priceInput.validity.rangeUnderflow) {
       priceInput.setCustomValidity(`Цена за ночь не может быть меньше ${priceInput.min} рублей`);
@@ -117,6 +121,10 @@ const AdForm = function () {
     } else {
       priceInput.setCustomValidity('');
     }
+  });
+
+  priceInput.addEventListener('input', () => {
+    priceInput.checkValidity();
   });
 
   const capacityValidate = () => {
