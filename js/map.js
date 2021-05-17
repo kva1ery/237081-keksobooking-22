@@ -17,14 +17,13 @@ const L = window.L;
  */
 const Map = function (properties = {}) {
 
-  let markers = [];
+  const markers = [];
 
   /**
    * Creates markers for housings on the map.
    * @param housings
    */
   this.createHousingsMarkers = (housings) => {
-    markers = [];
     housings.forEach((housing) => {
       const card = new Card(housing);
       const marker = createMarker(housing.location, card.render());

@@ -3,7 +3,7 @@
 import {AdForm} from './ad-form.js';
 import {FilterForm} from './filter-form.js';
 import {Map} from './map.js';
-import {TestHousing} from './data/test-data.js'
+import {TestHousing} from './data/test-data.js';
 
 const adForm = new AdForm();
 const filterForm = new FilterForm();

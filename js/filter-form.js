@@ -12,11 +12,7 @@ const FilterForm = function () {
    * @param {boolean} active
    */
   this.toggleActive = (active = true) => {
-    if (active) {
-      form.classList.remove('ad-form--disabled');
-    } else {
-      form.classList.add('ad-form--disabled');
-    }
+    form.classList.toggle('ad-form--disabled', !active);
 
     const fieldsets = form.querySelectorAll('fieldset');
     fieldsets.forEach((fieldset) => {
